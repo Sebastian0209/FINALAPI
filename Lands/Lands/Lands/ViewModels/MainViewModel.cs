@@ -4,8 +4,18 @@ using System.Text;
 
 namespace Lands.ViewModels
 {
+    using Models;
+
     class MainViewModel
     {
+        #region Properties
+        public TokenResponse Token
+        {
+            get; set;
+        }
+
+        #endregion
+
         #region ViewModels
         public LoginViewModel Login
         {
