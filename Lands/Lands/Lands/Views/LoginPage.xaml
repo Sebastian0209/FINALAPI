@@ -10,7 +10,7 @@
             BindingContext="{Binding Login}">
             <StackLayout
             Padding ="5">
-             
+
                 <Image
                 WidthRequest="200"
                 Source="API">
@@ -53,7 +53,7 @@
                    Text="{Binding Password, Mode=TwoWay}"
                 Placeholder="Enter your password">
                     </Entry>
-                    </Grid>
+                </Grid>
                 <ActivityIndicator
                     IsRunning="{Binding IsRunning, Mode=TwoWay}">
 
@@ -69,17 +69,17 @@
                     <Switch
                         IsToggled="{Binding IsRemembered, Mode=TwoWay}"
                     HorizontalOptions="End">
-                   </Switch>
+                    </Switch>
                 </StackLayout>
                 <Label
                     HorizontalOptions="Center"
                     Text="olvidaste tu password?"
                     TextColor="Blue"
                     VerticalOptions="CenterAndExpand">
-                    
+
                 </Label>
 
-              
+
                 <StackLayout
                 Margin="40,0">
                     <Button
@@ -87,6 +87,7 @@
                    BorderRadius="23"
                    Command="{Binding LoginCommand}"
                    HeightRequest="46"
+                   IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
                    Text="Login"
                    TextColor="White">
                     </Button>
@@ -119,6 +120,6 @@
             </StackLayout>
 
         </ScrollView>
-       
+
     </ContentPage.Content>
 </ContentPage>
