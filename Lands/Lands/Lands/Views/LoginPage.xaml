@@ -44,7 +44,7 @@
                                         </Label>
                                         <Label 
                                             Text="{Binding Capital}"
-                                            TextColor="Black">
+                                            TextColor="Red">
                                         </Label>
                                     </StackLayout>
                                     <Image 
