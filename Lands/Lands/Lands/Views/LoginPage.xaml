@@ -40,11 +40,11 @@
                                             FontAttributes="Bold"
                                             FontSize="Medium" 
                                             Text="{Binding Name}"
-                                            TextColor="Red">
+                                            TextColor="Black">
                                         </Label>
                                         <Label 
                                             Text="{Binding Capital}"
-                                            TextColor="Red">
+                                            TextColor="Black">
                                         </Label>
                                     </StackLayout>
                                     <Image 
