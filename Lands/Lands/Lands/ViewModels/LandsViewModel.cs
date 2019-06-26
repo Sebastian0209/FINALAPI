@@ -20,16 +20,16 @@ namespace Lands.ViewModels
 
         #region Attributes
 
-        private ObservableCollection<Land>lands;
+        private ObservableCollection<Land> land;
         private bool isRefreshing;
         #endregion
 
 
         #region Properties
-        public ObservableCollection<Land> Lands
+        public ObservableCollection<Land> Land
         {
-            get { return this.lands; }
-            set { SetValue(ref this.lands, value); }
+            get { return this.land; }
+            set { SetValue(ref this.land, value); }
         }
 
         public bool IsRefreshing
@@ -80,7 +80,7 @@ namespace Lands.ViewModels
                 return;
             }
             var list = (List<Land>)response.Result;
-            this.Lands = new ObservableCollection<Land>(list);
+            this.Land = new ObservableCollection<Land>(list);
             this.IsRefreshing = false;
         }
         #endregion
@@ -93,7 +93,8 @@ namespace Lands.ViewModels
                 return new RelayCommand(LoadLands);
 
             }
-                }
+        }
         #endregion
     }
 }
+

@@ -1,6 +1,8 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Lands.ViewModels;
+using Lands.Views;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Lands
@@ -13,6 +15,10 @@ namespace Lands
         public App()
         {
             InitializeComponent();
+
+            MainPage = new MainPage();
+            var mainViewModel = MainViewModel.GetInstance();
+            mainViewModel.Lands = new LandsViewModel();
 
             this.MainPage = new NavigationPage(new LoginPage());
         }

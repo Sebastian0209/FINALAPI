@@ -4,122 +4,61 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     x:Class="Lands.Views.LoginPage"
     BindingContext="{Binding Main, Source={StaticResource Locator}}"
-    Title="Login">
+    Title="LANDS">
     <ContentPage.Content>
-        <ScrollView
-            BindingContext="{Binding Login}">
-            <StackLayout
-            Padding ="5">
-
-                <Image
-                WidthRequest="200"
-                Source="API">
-
-                </Image>
-
-                <Grid
-                    Margin="10,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="2*"/>
-                    </Grid.ColumnDefinitions>
-                    <Label
-                      Grid.Row="0"
-                      Grid.Column="0"
-                      FontAttributes="Bold"
-                      FontSize="Large"
-                      Text="E-Mail"
-                     VerticalOptions="Center"
-                />
-                    <Entry
-               Grid.Row="0"
-               Grid.Column="1"
-                Keyboard="Email"
-               Text="{Binding Email, Mode=TwoWay}"
-               Placeholder="Enter your email">
-                    </Entry>
-                    <Label
-                 Grid.Row="1"
-               Grid.Column="0"   
-                FontAttributes="Bold"
-                FontSize="Large"
-                Text="Password"
-                    VerticalOptions="Center"
-                />
-                    <Entry
-                    Grid.Row="1"
-               Grid.Column="1"
-                IsPassword="True"
-                   Text="{Binding Password, Mode=TwoWay}"
-                Placeholder="Enter your password">
-                    </Entry>
-                </Grid>
-                <ActivityIndicator
-                    IsRunning="{Binding IsRunning, Mode=TwoWay}">
-
-                </ActivityIndicator>
-                <StackLayout
-                    Margin="10,0"
-                Orientation="Horizontal">
-                    <Label
-                    VerticalOptions="Center"
-                    HorizontalOptions="StartAndExpand"
-                    Text="Recordame en este dispositivo">
-                    </Label>
-                    <Switch
-                        IsToggled="{Binding IsRemembered, Mode=TwoWay}"
-                    HorizontalOptions="End">
-                    </Switch>
-                </StackLayout>
-                <Label
-                    HorizontalOptions="Center"
-                    Text="olvidaste tu password?"
-                    TextColor="Blue"
-                    VerticalOptions="CenterAndExpand">
-
-                </Label>
-
-
-                <StackLayout
-                Margin="40,0">
-                    <Button
-                   BackgroundColor="Navy"
-                   BorderRadius="23"
-                   Command="{Binding LoginCommand}"
-                   HeightRequest="46"
-                   IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
-                   Text="Login"
-                   TextColor="White">
-                    </Button>
-                    <Button
-                BackgroundColor="Purple"
-                BorderRadius="23"
-                HeightRequest="46"
-                Text="Register"
-                TextColor="White">
-                    </Button>
-
-                    <StackLayout
-                    HorizontalOptions="Center"
-                    Orientation="Horizontal">
-                        <Image
-                        Source="facebook"
-                        WidthRequest="100">
-                        </Image>
-                        <Image
-                        Source="instagram"
-                        WidthRequest="85">
-                        </Image>
-                        <Image
-                        Source="twitter"
-                        WidthRequest="80">
-                        </Image>
-                    </StackLayout>
-                </StackLayout>
-
-            </StackLayout>
-
-        </ScrollView>
+        <StackLayout
+            BindingContext="{Binding Land}"
+            Padding="5">
+            <ListView 
+                BackgroundColor="Silver"
+                HasUnevenRows="true" 
+                IsPullToRefreshEnabled="true"
+                IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
+                ItemsSource="{Binding Land}"
+                SeparatorVisibility="None"
+                RefreshCommand="{Binding RefreshCommand}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame
+                                CornerRadius="20"
+                                HasShadow="true"
+                                Margin="5">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectLandCommand}"/>
+                                </Frame.GestureRecognizers>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout 
+                                        Grid.Column="1"
+                                        VerticalOptions="Center">
+                                        <Label 
+                                            FontAttributes="Bold"
+                                            FontSize="Medium" 
+                                            Text="{Binding Name}"
+                                            TextColor="Black">
+                                        </Label>
+                                        <Label 
+                                            Text="{Binding Capital}"
+                                            TextColor="Black">
+                                        </Label>
+                                    </StackLayout>
+                                    <Image 
+                                        Grid.Column="2"
+                                        HorizontalOptions="End" 
+                                        Source="ic_chevron_right">
+                                    </Image>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
 
     </ContentPage.Content>
 </ContentPage>

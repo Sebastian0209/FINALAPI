@@ -15,6 +15,7 @@ namespace Lands.Views
 		public LoginPage ()
 		{
 			InitializeComponent ();
-		}
+          
+        }
 	}
 }
